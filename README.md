@@ -1,5 +1,7 @@
 # mcp-idb
 
+[![smithery badge](https://smithery.ai/badge/@noahlozevski/mcp-idb)](https://smithery.ai/server/@noahlozevski/mcp-idb)
+
 MCP server integration for Facebook's iOS Development Bridge (idb).
 
 ## Overview
@@ -52,6 +54,24 @@ Example use cases include:
 - Screenshot testing
 - Automated interactions ("tap the home button on the screen")
 - Installing / removing applications
+
+## Installation
+
+### Installing via Smithery
+
+To install MCP-iDB for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@noahlozevski/mcp-idb):
+
+```bash
+npx -y @smithery/cli install @noahlozevski/mcp-idb --client claude
+```
+
+### CLI Installation
+
+To install the CLI locally via npm:
+
+```bash
+npm install --global @noahlozevski/mcp-idb
+```
 
 ## Development
 
