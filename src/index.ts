@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
@@ -26,7 +28,7 @@ If that doesn't work, try using the following commands:
   
 - **Tap**  
   - **Command:** 'idb ui tap X Y [--duration DURATION]'
-  - **Description:** Simulates a tap at the given screen coordinates. Optionally, you can set the tap’s duration.
+  - **Description:** Simulates a tap at the given screen coordinates. Optionally, you can set the tap's duration.
   
 - **Swipe**  
   - **Command:** 'idb ui swipe X_START Y_START X_END Y_END [--delta STEP_SIZE]'
@@ -50,7 +52,7 @@ The output from 'idb ui describe-all' provides detailed layout information for e
 - **x and y:** The coordinates of the element's top-left corner relative to the device screen.
 - **width and height:** The dimensions of the element.
 Additionally, an 'AXFrame' string presents this data in a human-readable format like '{{x, y}, {width, height}}'.
-These values allow you to determine an element’s position—commonly by calculating its center (x + width/2, y + height/2) for precise interactions. For instance, in the sample output, the "More, tab, 4 of 4" button has a frame starting at x=330, y=876.33 with a width of 110 and height of 45.67. A tap command such as 'idb ui tap 375 880' (which targets near the element’s center) successfully triggers the button.
+These values allow you to determine an element's position—commonly by calculating its center (x + width/2, y + height/2) for precise interactions. For instance, in the sample output, the "More, tab, 4 of 4" button has a frame starting at x=330, y=876.33 with a width of 110 and height of 45.67. A tap command such as 'idb ui tap 375 880' (which targets near the element's center) successfully triggers the button.
 `;
 
 // Generic tool to execute any IDB command with arguments
