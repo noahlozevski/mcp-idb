@@ -5,14 +5,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "mcp-idb": "./dist/index.js"
+    "mcp-idb": "dist/index.js"
   },
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && shx chmod +x dist/*.js",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^20.11.24",
     "prettier": "^3.2.5",
+    "shx": "^0.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
