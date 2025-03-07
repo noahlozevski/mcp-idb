@@ -6,6 +6,11 @@ MCP server integration for Facebook's iOS Development Bridge (idb).
 
 This package provides integration between [MCP (Model Context Protocol)](https://modelcontextprotocol.io/introduction) and Facebook's [idb (iOS Development Bridge)](https://fbidb.io/docs/installation/), enabling automated iOS device management and test execution through MCP.
 
+Start the server:
+```sh
+npx -y @noahlozevski/mcp-idb
+```
+
 ## Prerequisites
 
 - [idb (iOS Development Bridge)](https://fbidb.io/docs/installation/)

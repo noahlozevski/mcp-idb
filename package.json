@@ -30,7 +30,10 @@
   },
   "keywords": [
     "MCP",
-    "IDB"
+    "Model Context Protocol",
+    "iOS",
+    "IDB",
+    "iOS Development Bridge"
   ],
   "bugs": {
     "url": "https://github.com/noahlozevski/mcp-idb/issues"
