@@ -1,6 +1,6 @@
 {
   "name": "@noahlozevski/mcp-idb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MCP server for exposing idb (Facebook iOS Development Bridge)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
