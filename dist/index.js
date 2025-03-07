@@ -8,7 +8,7 @@ const node_util_1 = require("node:util");
 // Promisify execFile for convenience
 const execFileAsync = (0, node_util_1.promisify)(node_child_process_1.execFile);
 // Create the MCP server with a name and version
-const server = new mcp_js_1.McpServer({ name: "idb", version: "1.0.0" });
+const server = new mcp_js_1.McpServer({ name: 'idb', version: '1.0.0' });
 // Minimal debug logger
 function debugLog(message) {
     // Toggle debug logging as needed
@@ -51,30 +51,27 @@ Additionally, an 'AXFrame' string presents this data in a human-readable format 
 These values allow you to determine an element’s position—commonly by calculating its center (x + width/2, y + height/2) for precise interactions. For instance, in the sample output, the "More, tab, 4 of 4" button has a frame starting at x=330, y=876.33 with a width of 110 and height of 45.67. A tap command such as 'idb ui tap 375 880' (which targets near the element’s center) successfully triggers the button.
 `;
 // Generic tool to execute any IDB command with arguments
-server.tool("idb", {
+server.tool('idb', {
     command: zod_1.z.string().describe(idbCommandDescription),
-    options: zod_1.z
-        .array(zod_1.z.string())
-        .optional()
-        .describe("Optional arguments for the IDB command"),
+    options: zod_1.z.array(zod_1.z.string()).optional().describe('Optional arguments for the IDB command'),
 }, async ({ command, options }) => {
     const args = options ? [command, ...options] : [command];
-    debugLog(`Executing: idb ${args.join(" ")}`);
+    debugLog(`Executing: idb ${args.join(' ')}`);
     try {
-        const { stdout, stderr } = await execFileAsync("idb", args);
+        const { stdout, stderr } = await execFileAsync('idb', args);
         // Prefer STDOUT; if empty and STDERR has content, use that
         const output = stdout.trim() || stderr.trim();
-        return { content: [{ type: "text", text: output }] };
+        return { content: [{ type: 'text', text: output }] };
     }
     catch (err) {
         debugLog(`Error executing idb ${command}: ${err.message || err}`);
         return {
-            content: [{ type: "text", text: `Error: ${err.message || err}` }],
+            content: [{ type: 'text', text: `Error: ${err.message || err}` }],
         };
     }
 });
 // Start the MCP server using STDIO transport
 const transport = new stdio_js_1.StdioServerTransport();
-server.connect(transport).catch((err) => {
-    console.error("Failed to start MCP server:", err);
+server.connect(transport).catch(err => {
+    console.error('Failed to start MCP server:', err);
 });

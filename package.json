@@ -1,24 +1,39 @@
 {
-  "name": "mcp-idb",
+  "name": "@noahlozevski/mcp-idb",
   "version": "1.0.0",
-  "description": "",
+  "description": "MCP server for exposing idb (Facebook iOS Development Bridge)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,md}\""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "noah lozevski <noahlozevski@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.1",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahlozevski/mcp-idb.git"
+  },
+  "keywords": [
+    "MCP",
+    "IDB"
+  ],
+  "bugs": {
+    "url": "https://github.com/noahlozevski/mcp-idb/issues"
+  },
+  "homepage": "https://github.com/noahlozevski/mcp-idb#readme"
 }

@@ -47,3 +47,33 @@ Example use cases include:
 - Screenshot testing
 - Automated interactions ("tap the home button on the screen")
 - Installing / removing applications
+
+## Development
+
+### Code Formatting
+
+This project uses Prettier for code formatting. To format your code:
+
+```bash
+npm run format        # Format all files
+```
+
+The formatting configuration can be found in `.prettierrc` at the root of the project.
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. **idb companion not found**: Ensure idb-companion is installed via Homebrew
+2. **Device not detected**: Make sure the iOS device is:
+   - Connected via USB
+   - Trusted on the computer
+   - Has developer mode enabled
+
+## Contributing
+
+Please follow the standard MCP contribution guidelines when making changes to this package.
+
+## License
+
+This project is part of Mobile Control Plane (MCP) and follows Amazon's internal licensing policies.

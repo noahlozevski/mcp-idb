@@ -1,14 +1,14 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { z } from 'zod';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 
 // Promisify execFile for convenience
 const execFileAsync = promisify(execFile);
 
 // Create the MCP server with a name and version
-const server = new McpServer({ name: "idb", version: "1.0.0" });
+const server = new McpServer({ name: 'idb', version: '1.0.0' });
 
 // Minimal debug logger
 function debugLog(message: string) {
@@ -55,26 +55,23 @@ These values allow you to determine an element’s position—commonly by calcul
 
 // Generic tool to execute any IDB command with arguments
 server.tool(
-  "idb",
+  'idb',
   {
     command: z.string().describe(idbCommandDescription),
-    options: z
-      .array(z.string())
-      .optional()
-      .describe("Optional arguments for the IDB command"),
+    options: z.array(z.string()).optional().describe('Optional arguments for the IDB command'),
   },
   async ({ command, options }) => {
     const args = options ? [command, ...options] : [command];
-    debugLog(`Executing: idb ${args.join(" ")}`);
+    debugLog(`Executing: idb ${args.join(' ')}`);
     try {
-      const { stdout, stderr } = await execFileAsync("idb", args);
+      const { stdout, stderr } = await execFileAsync('idb', args);
       // Prefer STDOUT; if empty and STDERR has content, use that
       const output = stdout.trim() || stderr.trim();
-      return { content: [{ type: "text", text: output }] };
+      return { content: [{ type: 'text', text: output }] };
     } catch (err: any) {
       debugLog(`Error executing idb ${command}: ${err.message || err}`);
       return {
-        content: [{ type: "text", text: `Error: ${err.message || err}` }],
+        content: [{ type: 'text', text: `Error: ${err.message || err}` }],
       };
     }
   },
@@ -82,7 +79,6 @@ server.tool(
 
 // Start the MCP server using STDIO transport
 const transport = new StdioServerTransport();
-server.connect(transport).catch((err) => {
-  console.error("Failed to start MCP server:", err);
+server.connect(transport).catch(err => {
+  console.error('Failed to start MCP server:', err);
 });
-
