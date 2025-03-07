@@ -46,7 +46,7 @@
   "bugs": {
     "url": "https://github.com/noahlozevski/mcp-idb/issues"
   },
-  "homepage": "https://github.com/noahlozevski/mcp-idb#readme"
+  "homepage": "https://github.com/noahlozevski/mcp-idb#readme",
   "publishConfig": {
     "access": "public"
   }
